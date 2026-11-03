@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #eef0f3;
+  --ink: #0e1322;
+  --line: rgba(14, 19, 34, 0.14);
+  --accent: #3b4ef0;
+  --s1: #e2e6ec;
+  --s2: #d9dee6;
+  --s3: #d0d6e0;
+  --s4: #c7ced9;
+  --ov-bg: #0e1322;
+  --ov-fg: #fff;
+  --ov-blend: multiply;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0c101c;
+    --ink: #e8ebf4;
+    --line: rgba(232, 235, 244, 0.14);
+    --accent: #8a9bff;
+    --s1: #121828;
+    --s2: #171e31;
+    --s3: #1c253a;
+    --s4: #212b43;
+    --ov-bg: #e8ebf4;
+    --ov-fg: #000;
+    --ov-blend: screen;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0c101c;
+  --ink: #e8ebf4;
+  --line: rgba(232, 235, 244, 0.14);
+  --accent: #8a9bff;
+  --s1: #121828;
+  --s2: #171e31;
+  --s3: #1c253a;
+  --s4: #212b43;
+  --ov-bg: #e8ebf4;
+  --ov-fg: #000;
+  --ov-blend: screen;
+  color-scheme: dark;
+}
+html {
+  background: var(--paper);
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  background: var(--paper);
+  overflow-x: clip;
+}
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.grid-bg {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--accent),
+    transparent 55%
+  );
+  opacity: 0.55;
+}
+.fill {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--ink);
+  background: linear-gradient(var(--ink), var(--ink)) no-repeat 0 100%/100% 0%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.xp-dot {
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+.xp-dot.on {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.ov {
+  background: var(--ov-bg);
+  color: var(--ov-fg);
+  mix-blend-mode: var(--ov-blend);
+}
+.tk.k {
+  font-weight: 700;
+}
+.tk.y {
+  font-weight: 600;
+}
+.tk.s {
+  color: var(--accent);
+}
+.tk.p {
+  opacity: 0.5;
+}
+@media (max-height: 520px) {
+  .mock {
+    display: none;
+  }
+  .pnl {
+    padding-top: 4.5rem !important;
+  }
+  .cdl {
+    display: none;
+  }
+}
+.svc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.svc-row.on .svc-body {
+  grid-template-rows: 1fr;
+}
+.svc-title {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.svc-row.on .svc-title,
+.svc-row:hover .svc-title {
+  opacity: 1;
+}
+.svc-ico {
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+.svc-row.on .svc-ico {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+.svc-plus {
+  transition: transform 0.35s;
+}
+.svc-row.on .svc-plus {
+  transform: rotate(45deg);
+}
+.pv {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+  pointer-events: none;
+}
+.pv.on {
+  opacity: 1;
+  transform: none;
+}
+.ri {
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.ri.on {
+  opacity: 1;
+}
+.ri.on i {
+  background: var(--accent);
+  transform: scale(1.5);
+}
+.ri i {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  margin-right: 0.6rem;
+  border-radius: 99px;
+  background: var(--ink);
+  transition: transform 0.3s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ov {
+    mix-blend-mode: normal;
+    background: transparent;
+    color: var(--ink);
+  }
+  .tag {
+    opacity: 1 !important;
+  }
+  .stage {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .pnl {
+    position: relative !important;
+    min-height: 80svh;
+    clip-path: none !important;
+  }
+  .rail,
+  .pbar,
+  .cue {
+    display: none;
+  }
+  .fill {
+    background-size: 100% 100%;
+  }
+  .xp-dot {
+    background: var(--accent);
+  }
+  .svc-body,
+  .pv,
+  .svc-title,
+  .svc-ico,
+  .svc-plus {
+    transition: none;
+  }
+}
