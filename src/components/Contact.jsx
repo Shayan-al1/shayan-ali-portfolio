@@ -93,8 +93,8 @@ export default function Contact() {
             LinkedIn
           </a>
           <a
-            href={import.meta.env.BASE_URL + "Shayan_Ali_CV.pdf"}
-            download
+            href="/Shayan_Ali_CV.pdf"
+            download="Shayan_Ali_CV.pdf"
             className="rounded-full border-2 border-ink px-4 py-2 text-sm font-semibold sm:px-5 sm:py-2.5 sm:text-base md:px-6 md:py-3 md:text-lg"
           >
             Download CV
