@@ -7,7 +7,7 @@ export const DATA = {
   tel: "tel:+923108050724",
   whatsapp: "https://wa.me/923108050724",
   languages: "English, Urdu and Persian",
-  linkedin: "https://www.linkedin.com/in/shayan-ali-a7363b282/",
+  linkedin: "https://www.linkedin.com/in/shayan-ali88/",
   code: [
     "const shayan = {",
     "  role: 'Frontend developer',",
