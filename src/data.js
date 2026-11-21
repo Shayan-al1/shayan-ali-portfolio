@@ -36,6 +36,26 @@ export const DATA = {
       links: [["Visit the site", "https://www.moorabbintyres.com"]],
     },
     {
+      short: "Laiba Raza portfolio",
+      title: "Syeda Laiba Raza portfolio",
+      shots: [
+        [
+          "laibaHero",
+          "Syeda Laiba Raza portfolio hero: gold serif name over animated green curtain",
+        ],
+        [
+          "laibaRunway",
+          "3D runway gallery with framed garment photos under spotlights",
+        ],
+      ],
+      cap: "Curtain intro and 3D runway gallery",
+      text: "A fashion designer's portfolio built as a show: an animated curtain intro, then a scroll-driven 3D runway where each garment walks forward under spotlights, with process, files, archive and experience sections.",
+      stack: ["React.js", "Three.js", "GSAP ScrollTrigger"],
+      links: [
+        ["Visit the site", "https://syeda-laiba-raza-portfolio.vercel.app/"],
+      ],
+    },
+    {
       short: "Shopify apps",
       title: "Presia, Alira and Varia Shopify apps",
       shots: [
@@ -120,13 +140,19 @@ export const SERVICES = [
   [
     "Custom frontend builds",
     "Responsive interfaces built from scratch with React.js, HTML, CSS and JavaScript, from business websites with booking and contact features to app screens like live chat and feeds.",
-    ["Moorabbin Tyres", "ConnectStud", "Restaurant website"],
+    [
+      "Moorabbin Tyres",
+      "Syeda Laiba Raza portfolio",
+      "ConnectStud",
+      "Restaurant website",
+    ],
     "code",
     [
       ["moor", "Moorabbin Tyres website homepage"],
+      ["laibaRunway", "Syeda Laiba Raza portfolio 3D runway gallery"],
       ["rest", "Restaurant website homepage"],
     ],
-    "Moorabbin Tyres and a restaurant website",
+    "Moorabbin Tyres, Syeda Laiba Raza portfolio and a restaurant website",
   ],
   [
     "Shopify themes and apps",

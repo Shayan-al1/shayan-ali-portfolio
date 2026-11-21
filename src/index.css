@@ -11,6 +11,7 @@
   --s2: #d9dee6;
   --s3: #d0d6e0;
   --s4: #c7ced9;
+  --s5: #bec6d2;
   --ov-bg: #0e1322;
   --ov-fg: #fff;
   --ov-blend: multiply;
@@ -29,6 +30,7 @@
     --s2: #171e31;
     --s3: #1c253a;
     --s4: #212b43;
+    --s5: #26314b;
     --ov-bg: #e8ebf4;
     --ov-fg: #000;
     --ov-blend: screen;
@@ -44,6 +46,7 @@
   --s2: #171e31;
   --s3: #1c253a;
   --s4: #212b43;
+  --s5: #26314b;
   --ov-bg: #e8ebf4;
   --ov-fg: #000;
   --ov-blend: screen;

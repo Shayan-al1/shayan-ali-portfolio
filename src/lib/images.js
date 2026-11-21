@@ -4,5 +4,7 @@ import alira from '../assets/work/alira.webp';
 import varia from '../assets/work/varia.webp';
 import kaven from '../assets/work/kaven.webp';
 import rest from '../assets/work/restaurant.webp';
+import laibaHero from '../assets/work/laiba-hero.webp';
+import laibaRunway from '../assets/work/laiba-runway.webp';
 
-export const IMG = { moor, presia, alira, varia, kaven, rest };
+export const IMG = { moor, presia, alira, varia, kaven, rest, laibaHero, laibaRunway };

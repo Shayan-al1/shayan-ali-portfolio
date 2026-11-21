@@ -18,7 +18,7 @@ export default function Work() {
           scrollTrigger: {
             trigger: ref.current,
             start: "top top",
-            end: "+=400%",
+            end: "+=" + P.length * 100 + "%",
             pin: true,
             scrub: true,
             onUpdate: () => {
