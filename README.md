@@ -54,10 +54,10 @@ terms, or use Pro, or host the same project on Cloudflare Pages (build command `
 
 ## Where things live
 
-- `src/data.js` – name, email, phone, tagline, the code shown in the editor window, experience, services and projects.
+- `src/data.js` – name, email, phone, tagline, the skills keyboard (`SKILLS`), experience, services and projects.
 - `src/index.css` – light and dark colour variables at the top (including the hero overlay colours), plus Tailwind.
 - `tailwind.config.js` – maps the colour variables to Tailwind classes.
-- `src/components/` – Nav (with the mobile menu), SkipIntro, Hero (zoom-through name), Code (scroll-typed editor), Experience, Work (wipe-reveal stage), Services, Contact (assembling email), ProgressBar.
+- `src/components/` – Nav (with the mobile menu), SkipIntro, Hero (zoom-through name), Skills (interactive keyboard), Experience, Work (wipe-reveal stage), Services, Contact (assembling email), ProgressBar.
 - `src/lib/motion.js` – GSAP setup and the reduced-motion flag.
 - `src/lib/images.js` and `src/assets/work/` – the project screenshots.
 - `public/` – `Shayan_Ali_CV.pdf` (behind the Download CV button; replace the file to update it), `favicon.svg`, `og.png` (share preview image) and `robots.txt`.

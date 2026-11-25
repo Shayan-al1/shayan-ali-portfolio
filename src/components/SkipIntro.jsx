@@ -6,7 +6,7 @@ import { goTo } from "./Nav";
 export default function SkipIntro() {
   const [show, setShow] = useState(true);
   useLayoutEffect(() => {
-    const on = () => setShow(scrollY < innerHeight * 2.2);
+    const on = () => setShow(scrollY < innerHeight * 1.6);
     on();
     addEventListener("scroll", on, { passive: true });
     return () => removeEventListener("scroll", on);
@@ -16,7 +16,7 @@ export default function SkipIntro() {
     <a
       href="#skills"
       onClick={(e) => goTo(e, "skills")}
-      className="fixed bottom-16 right-5 z-[30] text-sm text-white underline underline-offset-4 mix-blend-difference sm:right-6 md:bottom-6 md:right-12 md:text-base"
+      className="hit fixed bottom-16 right-5 z-[30] text-sm text-white underline underline-offset-4 mix-blend-difference sm:right-6 md:bottom-6 md:right-12 md:text-base"
     >
       Skip intro
     </a>

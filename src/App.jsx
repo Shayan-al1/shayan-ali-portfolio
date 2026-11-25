@@ -1,6 +1,6 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Code from './components/Code';
+import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Work from './components/Work';
 import Services from './components/Services';
@@ -16,7 +16,7 @@ export default function App() {
       <SkipIntro />
       <main>
         <Hero />
-        <Code />
+        <Skills />
         <Experience />
         <Work />
         <Services />

@@ -3,6 +3,8 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
+      /* Side-by-side Work layout only when the screen is wider than tall; portrait tablets stack */
+      screens: { row: { raw: '(min-width: 768px) and (min-aspect-ratio: 1/1)' } },
       colors: {
         paper: 'var(--paper)',
         ink: 'var(--ink)',

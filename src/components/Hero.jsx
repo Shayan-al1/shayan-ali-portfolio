@@ -45,7 +45,7 @@ export default function Hero() {
           scrollTrigger: {
             trigger: ref.current,
             start: "top top",
-            end: "+=260%",
+            end: "+=190%",
             pin: true,
             scrub: true,
             invalidateOnRefresh: true,
@@ -63,7 +63,7 @@ export default function Hero() {
           },
           0,
         )
-          .to(".cue", { opacity: 0, duration: 0.08 }, 0)
+          .to(".cue, .hero-intro", { opacity: 0, duration: 0.08 }, 0)
           .to(".ov", { opacity: 0, duration: 0.12 }, 0.78)
           .fromTo(
             ".tag",
@@ -117,9 +117,18 @@ export default function Hero() {
           ))}
         </h1>
       </div>
+      <div className="hero-intro hero-fg absolute bottom-8 left-5 z-10 max-w-[62%] sm:left-6 sm:max-w-sm md:left-12 md:max-w-lg">
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider md:text-sm">
+          <span className="avail-dot" aria-hidden="true"></span>
+          Available for work
+        </p>
+        <p className="mt-1.5 text-sm leading-snug md:text-lg">
+          {DATA.role} · {DATA.stack}
+        </p>
+      </div>
       <p
         aria-hidden="true"
-        className="cue absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-base"
+        className="cue absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 text-base lg:block"
         style={{ color: "var(--ov-fg)" }}
       >
         Scroll to dive in

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { gsap, ScrollTrigger, reduce } from "../lib/motion";
 import { DATA } from "../data";
 
@@ -36,6 +36,38 @@ export default function Nav() {
       (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
   );
   const [open, setOpen] = useState(false);
+  const [cur, setCur] = useState(null);
+  /* Highlight the section under the middle of the screen. Pinned sections are measured by their pin spacer,
+     which spans the whole scroll distance of the animation. */
+  useEffect(() => {
+    let raf = 0;
+    const ids = NAV_LINKS.map((n) => n.toLowerCase());
+    const check = () => {
+      raf = 0;
+      const mid = innerHeight / 2;
+      let c = null;
+      for (const id of ids) {
+        let el = document.getElementById(id);
+        if (!el) continue;
+        if (el.parentElement.classList.contains("pin-spacer"))
+          el = el.parentElement;
+        const r = el.getBoundingClientRect();
+        if (r.top <= mid && r.bottom > mid) c = id;
+      }
+      setCur(c);
+    };
+    const on = () => {
+      if (!raf) raf = requestAnimationFrame(check);
+    };
+    check();
+    addEventListener("scroll", on, { passive: true });
+    addEventListener("resize", on);
+    return () => {
+      cancelAnimationFrame(raf);
+      removeEventListener("scroll", on);
+      removeEventListener("resize", on);
+    };
+  }, []);
   const flip = () => {
     const next = mode === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
@@ -87,7 +119,7 @@ export default function Nav() {
             close();
             goTo(e, "top");
           }}
-          className="font-semibold"
+          className="hit relative font-semibold"
         >
           <span className="hidden sm:inline">{DATA.name}</span>
           <span className="sm:hidden">SA</span>
@@ -99,7 +131,11 @@ export default function Nav() {
                 key={n}
                 href={"#" + n.toLowerCase()}
                 onClick={(e) => goTo(e, n.toLowerCase(), true)}
-                className="underline-offset-4 hover:underline"
+                aria-current={cur === n.toLowerCase() ? "true" : undefined}
+                className={
+                  "relative underline-offset-4 hover:underline " +
+                  (cur === n.toLowerCase() ? "nav-on" : "")
+                }
               >
                 {n}
               </a>
@@ -186,7 +222,11 @@ export default function Nav() {
                 <a
                   href={"#" + n.toLowerCase()}
                   onClick={(e) => go(e, n.toLowerCase())}
-                  className="block py-2 text-5xl font-extrabold tracking-tight"
+                  aria-current={cur === n.toLowerCase() ? "true" : undefined}
+                  className={
+                    "block py-2 text-5xl font-extrabold tracking-tight " +
+                    (cur === n.toLowerCase() ? "text-accent" : "")
+                  }
                   style={{ fontStretch: "80%" }}
                 >
                   {n}
