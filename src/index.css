@@ -180,6 +180,11 @@ body {
   mix-blend-mode: var(--ov-blend);
 }
 /* Skills keyboard */
+@media (max-width: 639px) {
+  .kmob {
+    --f: var(--fm);
+  }
+}
 .key {
   position: relative;
   display: block;
@@ -312,9 +317,6 @@ body {
 }
 .k-cms {
   background: color-mix(in srgb, var(--ink) 60%, var(--paper));
-}
-.k-back .cap {
-  background: color-mix(in srgb, var(--accent) 28%, var(--paper));
 }
 .k-cloud .cap {
   background: var(--s4);

@@ -6,17 +6,17 @@ import { goTo } from "./Nav";
 /* Skills as a mechanical keyboard. Scroll and the keycaps rain into the case; then click a key or type its letter
    and the little screen decodes what that skill is and where it was used. Spacebar is the hire-me key. */
 
-/* Rows in key units. Numbers are SKILLS indexes, arrays are decorative modifiers, strings are action keys. */
+/* Rows in key units. Numbers are SKILLS indexes, arrays are decorative modifiers ([label, units, units on phones];
+   modifiers without a phone size are hidden on phones), strings are action keys. */
 const ROWS = [
   [["esc", 1.5], 0, 1, 2, 3, ["delete", 2.5]],
-  [["tab", 2], 4, 5, 6, 7, ["\\", 2]],
-  [["caps", 2.5], 8, 9, 10, 11, "work"],
-  [["shift", 2], 12, 13, 14, 15, ["shift", 2]],
+  [["tab", 2], 5, 6, 7, 8, ["\\", 2]],
+  [["caps", 2.5], 9, 10, 11, 12, "work"],
+  [["shift", 2.5], 4, ["fn", 1.5], ["menu", 1.5], ["shift", 4.5, 6]],
   [["ctrl", 1.5], ["alt", 1.5], "space", ["alt", 1.5], ["ctrl", 1.5]],
 ];
 const SWATCH = {
   front: "var(--paper)",
-  back: "color-mix(in srgb, var(--accent) 28%, var(--paper))",
   motion: "var(--accent)",
   cms: "var(--ink)",
   cloud: "var(--s4)",
@@ -288,8 +288,8 @@ export default function Skills() {
       return (
         <div
           key={j}
-          className="kfly hidden sm:block"
-          style={{ flex: `${k[1]} 1 0` }}
+          className={"kfly " + (k[2] ? "kmob" : "hidden sm:block")}
+          style={{ flex: `var(--f, ${k[1]}) 1 0`, "--fm": k[2] }}
           aria-hidden="true"
         >
           <span className="key k-mod">

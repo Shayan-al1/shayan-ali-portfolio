@@ -51,7 +51,7 @@ export const DATA = {
       ],
       cap: "Recorded from the live site: homepage and online booking",
       text: "Freelance work: a tyre and wheel workshop’s website on the MERN stack. I built the whole frontend, including online booking and contact. The Node.js, Express and MongoDB backend was built with AI help (Codex). I set up the domain through Hostinger and deployed it on Render.",
-      stack: ["React.js", "Node.js", "Express", "MongoDB", "Render"],
+      stack: ["React.js", "Responsive layouts", "Render"],
       links: [["Visit the site", "https://www.moorabbintyres.com"]],
     },
     {
@@ -175,7 +175,7 @@ export const XP = [
 export const SERVICES = [
   [
     "Custom frontend builds",
-    "Responsive interfaces built from scratch with React.js, HTML, CSS and JavaScript, plus a Node.js, Express and MongoDB backend when the site needs one, from business websites with online booking to app screens like live chat and feeds.",
+    "Responsive interfaces built from scratch with React.js, HTML, CSS and JavaScript, from business websites with online booking to app screens like live chat and feeds.",
     "code",
     [
       ["Laiba Raza portfolio", "Laiba Raza portfolio"],
@@ -213,7 +213,6 @@ export const PROCESS = [
 /* Skills keyboard: [hotkey, name, short label, category, what I did with it, where] */
 export const SKILL_CATS = {
   front: "Frontend",
-  back: "Backend",
   motion: "Motion and 3D",
   cms: "CMS",
   cloud: "Cloud",
@@ -223,10 +222,7 @@ export const SKILLS = [
   ["c", "CSS3", "CSS", "front", "Responsive layouts that hold up on every screen size, and cross-device fixes on client sites.", ["Moorabbin Tyres", "Squarespace sites", "Source Tech Solutions"]],
   ["j", "JavaScript", "JS", "front", "Interactive UI and code-based enhancements, like the custom navigation on a Squarespace site.", ["Kaven Homes", "Restaurant website"]],
   ["r", "React.js", "React", "front", "Component-driven interfaces, from Shopify app screens to a live chat and feed UI.", ["Moorabbin Tyres", "Glacier Agency", "ConnectStud", "TAPMAD"]],
-  ["n", "Node.js", "Node", "back", "The backend of a freelance MERN site, built with AI help (Codex) behind my React frontend.", ["Moorabbin Tyres"]],
-  ["e", "Express", "Express", "back", "API routes behind a site’s booking and contact features, built with AI help (Codex).", ["Moorabbin Tyres"]],
-  ["m", "MongoDB", "Mongo", "back", "The database behind a freelance MERN site, set up with AI help (Codex).", ["Moorabbin Tyres"]],
-  ["d", "Render", "Render", "cloud", "Deploying a full MERN site, with its domain bought through Hostinger.", ["Moorabbin Tyres"]],
+  ["d", "Render", "Render", "cloud", "Deploying a freelance client site, with its domain bought through Hostinger.", ["Moorabbin Tyres"]],
   ["g", "GSAP", "GSAP", "motion", "Scroll-driven motion: pinned scenes, scrubbed timelines and reveals. This page runs on it.", ["Laiba Raza portfolio", "This portfolio"]],
   ["t", "Three.js", "Three", "motion", "A scroll-driven 3D runway where each garment walks forward under spotlights.", ["Laiba Raza portfolio"]],
   ["l", "Shopify Liquid", "Liquid", "cms", "Shopify theme customization for client stores.", ["Glacier Agency"]],
