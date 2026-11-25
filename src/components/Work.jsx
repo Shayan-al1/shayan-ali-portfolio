@@ -212,17 +212,47 @@ function Project({ p }) {
   const video = app ? [app.video, app.alt] : p.video;
   const links = app ? [[app.name + " on the App Store", app.link]] : p.links;
   const cap = app ? app.name + " admin, run locally on sample data" : p.cap;
-  const onTime = (e) => {
-    const v = e.currentTarget;
-    if (bar.current && v.duration)
-      bar.current.style.transform =
-        "scaleX(" + v.currentTime / v.duration + ")";
-  };
+  const vbar = useRef(null);
+  /* Progress: a bar under the clip (and the current app tab's bar), updated every frame while playing */
+  useEffect(() => {
+    const v = vref.current;
+    if (!v) return;
+    let raf = 0;
+    const draw = () => {
+      const f = v.duration ? v.currentTime / v.duration : 0;
+      if (vbar.current) vbar.current.style.transform = "scaleX(" + f + ")";
+      if (bar.current) bar.current.style.transform = "scaleX(" + f + ")";
+    };
+    const loop = () => {
+      draw();
+      raf = requestAnimationFrame(loop);
+    };
+    const start = () => {
+      cancelAnimationFrame(raf);
+      loop();
+    };
+    const stop = () => {
+      cancelAnimationFrame(raf);
+      draw();
+    };
+    v.addEventListener("playing", start);
+    v.addEventListener("pause", stop);
+    v.addEventListener("seeked", draw);
+    v.addEventListener("emptied", draw);
+    return () => {
+      cancelAnimationFrame(raf);
+      v.removeEventListener("playing", start);
+      v.removeEventListener("pause", stop);
+      v.removeEventListener("seeked", draw);
+      v.removeEventListener("emptied", draw);
+    };
+  }, []);
   /* New tab: the browser loads the new source; keep playing if this project is the one in front */
   useEffect(() => {
     const v = vref.current;
     if (!apps || !v) return;
     if (bar.current) bar.current.style.transform = "scaleX(0)";
+    if (vbar.current) vbar.current.style.transform = "scaleX(0)";
     if (v.dataset.front === "1" && !reduce) v.play().catch(() => {});
   }, [tab]);
   return (
@@ -366,11 +396,23 @@ function Project({ p }) {
               onEnded={
                 apps ? () => setTab((t) => (t + 1) % apps.length) : undefined
               }
-              onTimeUpdate={apps ? onTime : undefined}
               playsInline
               preload="none"
               controls={reduce || undefined}
             />
+          ) : null}
+          {video && !reduce ? (
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1 md:h-[5px]"
+              style={{ background: "color-mix(in srgb, var(--ink) 35%, transparent)" }}
+            >
+              <span
+                ref={vbar}
+                className="block h-full w-full origin-left bg-accent"
+                style={{ transform: "scaleX(0)" }}
+              ></span>
+            </span>
           ) : null}
           {(video ? [] : p.shots).map(([k, alt], i) => (
             <img

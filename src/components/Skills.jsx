@@ -359,7 +359,7 @@ export default function Skills() {
       id="skills"
       className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-x-clip px-4 pb-8 pt-20 sm:px-6 md:px-12"
     >
-      <div className="mb-5 flex w-full max-w-6xl flex-wrap items-end justify-between gap-x-6 gap-y-1 md:mb-8">
+      <div className="kb-w mb-5 flex w-full max-w-6xl flex-wrap items-end justify-between gap-x-6 gap-y-1 md:mb-8">
         <h2
           className="text-4xl font-bold tracking-tight md:text-6xl"
           style={{ fontStretch: "80%" }}
@@ -373,7 +373,7 @@ export default function Skills() {
         </p>
       </div>
 
-      <div className="kb-tilt w-full max-w-6xl">
+      <div className="kb-tilt kb-w w-full max-w-6xl">
         <div
           className="kb rounded-[1.25rem] border-2 border-ink p-3 sm:p-4 md:rounded-[1.75rem] md:p-5"
           style={{ background: "var(--s2)", boxShadow: "8px 8px 0 var(--ink)" }}
@@ -457,12 +457,12 @@ export default function Skills() {
                   </ul>
                 </div>
                 <p
-                  className="mt-auto break-words pt-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl"
+                  className="kb-name mt-auto break-words pt-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl"
                   style={{ fontStretch: "80%" }}
                 >
                   {shown}
                 </p>
-                <p className="mt-3 text-sm leading-snug opacity-80 md:text-base">
+                <p className="kb-line mt-3 text-sm leading-snug opacity-80 md:text-base">
                   {line}
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-1.5">

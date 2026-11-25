@@ -233,6 +233,67 @@ body {
     font-size: 14px;
   }
 }
+/* Big screens: a larger keyboard and screen, only where there is height for it */
+@media (min-width: 1536px) and (min-height: 820px) {
+  .kb-w.kb-w {
+    max-width: 84rem;
+  }
+  .key {
+    height: 4.75rem;
+  }
+  .key .nm {
+    font-size: 16px;
+  }
+  .key .lg {
+    font-size: 11px;
+  }
+  .screen .kb-name {
+    font-size: 3.75rem;
+  }
+  .screen .kb-line {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1920px) and (min-height: 1000px) {
+  .kb-w.kb-w {
+    max-width: 96rem;
+  }
+  .key {
+    height: 5.5rem;
+  }
+  .key .nm {
+    font-size: 18px;
+  }
+  .key .lg {
+    font-size: 12px;
+  }
+  .screen .kb-name {
+    font-size: 4.5rem;
+  }
+  .screen .kb-line {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 2400px) and (min-height: 1300px) {
+  .kb-w.kb-w {
+    max-width: 118rem;
+  }
+  .key {
+    height: 6.75rem;
+  }
+  .key .nm {
+    font-size: 22px;
+  }
+  .key .lg {
+    font-size: 14px;
+  }
+  .screen .kb-name {
+    font-size: 5.5rem;
+  }
+  .screen .kb-line {
+    font-size: 1.5rem;
+  }
+}
 .key:hover .cap {
   transform: translateY(1px);
 }
